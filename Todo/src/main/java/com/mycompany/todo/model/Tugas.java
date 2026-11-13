@@ -16,19 +16,18 @@ public class Tugas {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "Tambah_Tugas", nullable = false)
+    @Column(name = "nama_Tugas", nullable = false)
     private String namaTugas;
-    
-    @Column (name = "Tandai_Selesai")
-    private String tandaSelesai;
 
+    @Column(name = "Tandai_Selesai")
+    private String tandaSelesai;
 
     public Tugas() {
     }
 
     public Tugas(String namaTugas) {
         this.namaTugas = namaTugas;
-        this.tandaSelesai = "Belum Selesai";
+        this.tandaSelesai = "Belum";
     }
 
     public int getId() { return id; }
@@ -36,8 +35,7 @@ public class Tugas {
 
     public String getNamaTugas() { return namaTugas; }
     public void setNamaTugas(String namaTugas) { this.namaTugas = namaTugas; }
-    
-    public String getTandaSelesai(){return tandaSelesai;}
-    public void setTandaSelesai(String tandaSelesai){this.tandaSelesai = tandaSelesai;}
 
+    public String getTandaSelesai() { return tandaSelesai; }
+    public void setTandaSelesai(String tandaSelesai) { this.tandaSelesai = tandaSelesai; }
 }

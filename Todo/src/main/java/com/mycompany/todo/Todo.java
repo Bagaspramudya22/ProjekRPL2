@@ -4,10 +4,7 @@
 
 package com.mycompany.todo;
 
-/**
- *
- * @author Akmal Fauzan
- */
+
 public class Todo {
 
     public static void main(String[] args) {

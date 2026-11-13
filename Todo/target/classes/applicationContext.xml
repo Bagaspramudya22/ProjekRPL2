@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- SessionFactory: koneksi database diambil dari hibernate.cfg.xml -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+    </bean>
+
+    <!-- Transaction manager untuk Hibernate -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- Mengaktifkan @Transactional -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- DAO -->
+    <bean id="daoTugas" class="com.mycompany.todo.dao.TugasDAO">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- Service -->
+    <bean id="serviceTugas" class="com.mycompany.todo.service.TugasService">
+        <property name="tugasDAO" ref="daoTugas" />
+    </bean>
+
+    <!-- Controller -->
+    <bean id="tugasController" class="com.mycompany.todo.controller.TugasController">
+        <property name="tugasService" ref="serviceTugas" />
+    </bean>
+
+</beans>

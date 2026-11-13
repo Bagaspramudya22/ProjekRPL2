@@ -52,4 +52,24 @@ public class TugasController {
             return false;
         }
     }
+        public boolean hapusTugas(int id){
+            Transaction tx = null;
+            try (Session session = hibernateutil.getSessionFactory().openSession()){
+                tx = session.beginTransaction();
+                Tugas t = session.get(Tugas.class, id);
+                if (t == null){
+                    tx.rollback();
+                    return false;
+                }
+                session.delete(t);
+                tx.commit();
+                return true;
+            } catch (Exception e){
+                if (tx != null){
+                    tx.rollback();
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
 }

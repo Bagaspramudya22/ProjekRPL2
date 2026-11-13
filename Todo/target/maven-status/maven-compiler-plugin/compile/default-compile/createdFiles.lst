@@ -1,0 +1,13 @@
+com\mycompany\todo\view\fitur$5.class
+com\mycompany\todo\view\fitur$6.class
+com\mycompany\todo\controller\TugasController.class
+com\mycompany\todo\model\Tugas.class
+com\mycompany\todo\dao\TugasDao.class
+com\mycompany\todo\Todo.class
+com\mycompany\todo\view\fitur$2.class
+com\mycompany\todo\view\fitur$3.class
+com\mycompany\todo\view\fitur.class
+com\mycompany\todo\view\fitur$1.class
+com\mycompany\todo\util\hibernateutil.class
+com\mycompany\todo\view\fitur$4.class
+com\mycompany\todo\service\TugasService.class
